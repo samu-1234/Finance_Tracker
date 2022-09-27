@@ -1,0 +1,25 @@
+<div class="row">
+	<div class="col-9">
+		<table class="table able-striped table-hover mt-4">
+		  <thead>
+		    <tr>
+		      <th scope="col">Name</th>
+		      <th scope="col">Ticker</th>
+		      <th scope="col">Latest Price</th>
+
+		    </tr>
+		  </thead>
+		  <tbody>
+		  	<% if @tracked_stock %>
+			  	<% @tracked_stock.each do |stock| %>
+			    <tr>
+			      <th scope="row"><%=stock.name%></th>
+			      <td><%=stock.ticker%></td>
+			      <td><%=stock.last_price%></td>
+			    </tr>
+			    <% end %>
+			<% end %>
+		  </tbody>
+		</table>
+	</div>
+</div>

@@ -1,0 +1,16 @@
+<div class= "mt-5">
+	<% if @stock %>
+		<strong>Name:</strong><%=@stock.name%>
+		<strong>Latest_price:</strong><%=@stock.last_price%>
+		<strong>Ticker:</strong><%=@stock.ticker%>
+		<% if current_user.can_tract_stock?(@stock.ticker) %>
+			<%= link_to 'Add_to_Myportfolio', user_stocks_path(user:current_user, ticker:@stock.ticker), class:"btn btn-success ml-4", method: :post %>
+		<% else %>
+			<p>Already tracked</p>
+			<% if current_user.under_stock_limit?%>
+				<p>this stocks</p>
+			<%else%>
+				<p>10 stocks</p>
+			<%end%>
+		<%end%>
+	<% end %>
