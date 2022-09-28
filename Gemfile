@@ -68,7 +68,7 @@ group :development do
   gem "web-console"
 end
 
-  group :development do
+  group :production do
     gem 'pg'
   end
 
